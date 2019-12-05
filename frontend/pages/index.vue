@@ -7,46 +7,47 @@
       </div>
       <v-card>
         <v-card-title class="headline">
-          Welcome to the Vuetify + Nuxt.js template
+          Welco adsf dme to the Vuetify + Nuxt.js template
         </v-card-title>
         <v-card-text>
           <p>
-            Vuetify is a progressive Material Design component framework for
-            Vue.js. It was designed to empower developers to create amazing
-            applications.
+            bbbbbba asdfasd fdf asdf  asdf sdf sdfasdf asdf asdf asdf asdfVueti asfdasdf fy is a progressive Material Design
+            component framework for adsf asdf s Vue.js. It was designed to
+            empower asdf asdf sdaf s developers to cr asdf asdf asdf sdfeate amazing applications.
           </p>
           <p>
             For more information on Vuetify, check out the
-            <a href="https://vuetifyjs.com" target="_blank"> documentation </a>.
+            <a href="https://vuetifyjs.com" target="_blank">
+              documentation </a>.
           </p>
           <p>
             If you have questions, please join the official
-            <a href="https://chat.vuetifyjs.com/" target="_blank" title="chat">
-              discord </a
-            >.
+            <a
+              href="https://chat.vuetifyjs.com/"
+              target="_blank"
+              title="chat">
+              discord </a>.
           </p>
           <p>
             Find a bug? Report it on the github
             <a
               href="https://github.com/vuetifyjs/vuetify/issues"
               target="_blank"
-              title="contribute"
-            >
-              issue board </a
-            >.
+              title="contribute">
+              issue board </a>.
           </p>
           <p>
-            Thank you for developing with Vuetify and I look forward to bringing
-            more exciting features in the future.
+            Thank you for developing with Vuetify and I look forward
+            to bring adsf asdf sdaf sing more exciting features in the future.
           </p>
           <div class="text-xs-right">
             <em><small>&mdash; John Leider</small></em>
           </div>
-          <hr class="my-3" />
+          <hr class="my-3">
           <a href="https://nuxtjs.org/" target="_blank">
             Nuxt Documentation
           </a>
-          <br />
+          <br>
           <a href="https://github.com/nuxt/nuxt.js" target="_blank">
             Nuxt GitHub
           </a>
@@ -63,13 +64,13 @@
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
-import VuetifyLogo from '~/components/VuetifyLogo.vue'
+import Logo from '~/components/Logo.vue';
+import VuetifyLogo from '~/components/VuetifyLogo.vue';
 
 export default {
   components: {
     Logo,
     VuetifyLogo
   }
-}
+};
 </script>
