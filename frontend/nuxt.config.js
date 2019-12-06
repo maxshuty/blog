@@ -49,11 +49,13 @@ export default {
     /*
      ** Nuxt.js modules
      */
-    modules: [],
-    /*
-     ** vuetify module configuration
-     ** https://github.com/nuxt-community/vuetify-module
-     */
+    modules: ['@nuxtjs/apollo'],
+    apollo: {
+        clientConfigs: {
+            default: {
+                httpEndpoint: process.env.BACKEND_URL || "http://localhost:4242/graphql"
+            }
+        },
     vuetify: {
         customVariables: ['~/assets/variables.scss'],
         theme: {

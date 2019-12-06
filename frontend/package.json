@@ -14,6 +14,8 @@
     "test": "jest"
   },
   "dependencies": {
+    "@nuxtjs/apollo": "^4.0.0-rc18",
+    "graphql": "^14.5.8",
     "nuxt": "^2.0.0"
   },
   "devDependencies": {
