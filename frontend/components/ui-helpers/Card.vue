@@ -9,7 +9,7 @@
       <v-card-text class="my-4 text-center title">
         <div>
           <h3>{{ title }}</h3>
-          <div v-html="$md.render(body)" />
+          <div v-if="body" v-html="$md.render(body)" />
         </div>
       </v-card-text>
     </v-card>
