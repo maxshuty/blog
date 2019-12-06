@@ -1,76 +1,60 @@
 <template>
-  <v-layout column justify-center align-center>
-    <v-flex xs12 sm8 md6>
-      <div class="text-center">
-        <logo />
-        <vuetify-logo />
+  <div>
+    <search-comp @input="searchInput" />
+    <v-row align="center" justify="center">
+      <div v-for="blog in filteredBlogs" :key="blog.id">
+        <v-col cols="12">
+          <card-comp :title="blog.title" :body="blog.body" />
+        </v-col>
       </div>
-      <v-card>
-        <v-card-title class="headline">
-          Welco adsf dme to the Vuetify + Nuxt.js template
-        </v-card-title>
-        <v-card-text>
-          <p>
-            bbbbbba asdfasd fdf asdf  asdf sdf sdfasdf asdf asdf asdf asdfVueti asfdasdf fy is a progressive Material Design
-            component framework for adsf asdf s Vue.js. It was designed to
-            empower asdf asdf sdaf s developers to cr asdf asdf asdf sdfeate amazing applications.
-          </p>
-          <p>
-            For more information on Vuetify, check out the
-            <a href="https://vuetifyjs.com" target="_blank">
-              documentation </a>.
-          </p>
-          <p>
-            If you have questions, please join the official
-            <a
-              href="https://chat.vuetifyjs.com/"
-              target="_blank"
-              title="chat">
-              discord </a>.
-          </p>
-          <p>
-            Find a bug? Report it on the github
-            <a
-              href="https://github.com/vuetifyjs/vuetify/issues"
-              target="_blank"
-              title="contribute">
-              issue board </a>.
-          </p>
-          <p>
-            Thank you for developing with Vuetify and I look forward
-            to bring adsf asdf sdaf sing more exciting features in the future.
-          </p>
-          <div class="text-xs-right">
-            <em><small>&mdash; John Leider</small></em>
-          </div>
-          <hr class="my-3">
-          <a href="https://nuxtjs.org/" target="_blank">
-            Nuxt Documentation
-          </a>
-          <br>
-          <a href="https://github.com/nuxt/nuxt.js" target="_blank">
-            Nuxt GitHub
-          </a>
-        </v-card-text>
-        <v-card-actions>
-          <v-spacer />
-          <v-btn color="primary" nuxt to="/inspire">
-            Continue
-          </v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-flex>
-  </v-layout>
+    </v-row>
+
+    <div v-if="filteredBlogs.length == 0">
+      <img src="https://assets-ouch.icons8.com/preview/19/52de2377-696e-4194-8c63-0a81aef60b4f.png" height="800" width="800">
+      <p>No blogs found</p>
+    </div>
+  </div>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue';
-import VuetifyLogo from '~/components/VuetifyLogo.vue';
+import blogsQuery from '../apollo/queries/blog/blogs.gql';
+import categoriesQuery from '../apollo/queries/category/categories.gql';
+import CardComp from '../components/ui-helpers/Card.vue';
+import SearchComp from '../components/Search.vue';
 
 export default {
   components: {
-    Logo,
-    VuetifyLogo
+    CardComp,
+    SearchComp
+  },
+  data() {
+    return {
+      blogs: [],
+      query: '',
+      categories: []
+    };
+  },
+  apollo: {
+    blogs: {
+      prefetch: true,
+      query: blogsQuery
+    },
+    categories: {
+      prefetch: true,
+      query: categoriesQuery
+    }
+  },
+  computed: {
+    filteredBlogs() {
+      return this.blogs.filter((blog) => {
+        return this.query ? blog.title.toLowerCase().includes(this.query.toLowerCase()) : blog;
+      });
+    }
+  },
+  methods: {
+    searchInput(input) {
+      this.query = input;
+    }
   }
 };
 </script>
