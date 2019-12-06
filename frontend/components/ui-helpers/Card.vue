@@ -5,8 +5,7 @@
       :disabled="disabled"
       :height="height"
       :width="width"
-      class="mx-auto"
-    >
+      class="mx-auto">
       <v-card-text class="my-4 text-center title">
         <div>
           <h3>{{ title }}</h3>
