@@ -53,9 +53,11 @@ export default {
     apollo: {
         clientConfigs: {
             default: {
-                httpEndpoint: process.env.BACKEND_URL || "http://localhost:4242/graphql"
+                httpEndpoint:
+                    process.env.BACKEND_URL || 'http://localhost:4242/graphql'
             }
-        },
+        }
+    },
     vuetify: {
         customVariables: ['~/assets/variables.scss'],
         theme: {
