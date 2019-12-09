@@ -4,5 +4,8 @@ query Blogs {
       title
       date
       body
+      attachments {
+          url
+      }
     }
 }
