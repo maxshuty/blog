@@ -5,10 +5,7 @@
       :open-on-hover="openOnHover"
       :close-on-content-click="closeOnContentClick">
       <template v-slot:activator="{ on }">
-        <v-btn
-          color="primary"
-          dark
-          v-on="on" />
+        <v-btn color="primary" dark v-on="on" />
       </template>
       <v-list>
         <div v-if="!username">
@@ -31,24 +28,24 @@
 
 <script>
 export default {
-  name: 'AccountSelectComp',
-  props: {
-    disabled: {
-      type: Boolean,
-      default: false
+    name: 'AccountSelectComp',
+    props: {
+        disabled: {
+            type: Boolean,
+            default: false
+        }
+    },
+    data() {
+        return {
+            openOnHover: false,
+            closeOnContentClick: true
+        };
+    },
+    computed: {
+        username() {
+            // TODO: Max 12/5/19 - use mapGetters...
+            return 'Not working';
+        }
     }
-  },
-  data() {
-    return {
-      openOnHover: false,
-      closeOnContentClick: true
-    };
-  },
-  computed: {
-    username() {
-      // TODO: Max 12/5/19 - use mapGetters...
-      return 'Not working';
-    }
-  }
 };
 </script>

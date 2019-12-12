@@ -1,5 +1,5 @@
 <template>
-  <v-hover v-slot:default="{hover}">
+  <v-hover v-slot:default="{ hover }">
     <v-card
       :elevation="hover ? 6 : 2"
       :disabled="disabled"
@@ -18,29 +18,29 @@
 
 <script>
 export default {
-  name: 'CardComp',
-  props: {
-    disabled: {
-      type: Boolean,
-      default: false
-    },
-    title: {
-      type: String,
-      required: true
-    },
-    body: {
-      type: String,
-      default: '',
-      required: false
-    },
-    height: {
-      type: Number,
-      default: 350
-    },
-    width: {
-      type: Number,
-      default: 350
+    name: 'CardComp',
+    props: {
+        disabled: {
+            type: Boolean,
+            default: false
+        },
+        title: {
+            type: String,
+            required: true
+        },
+        body: {
+            type: String,
+            default: '',
+            required: false
+        },
+        height: {
+            type: Number,
+            default: 350
+        },
+        width: {
+            type: Number,
+            default: 350
+        }
     }
-  }
 };
 </script>

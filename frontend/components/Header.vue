@@ -12,9 +12,9 @@
 import AccountSelectComp from './AccountSelect';
 
 export default {
-  name: 'HeaderComp',
-  components: {
-    AccountSelectComp
-  }
+    name: 'HeaderComp',
+    components: {
+        AccountSelectComp
+    }
 };
 </script>

@@ -14,17 +14,17 @@
 
 <script>
 export default {
-  name: 'SearchComp',
-  props: {
-    clearable: {
-      type: Boolean,
-      default: true
+    name: 'SearchComp',
+    props: {
+        clearable: {
+            type: Boolean,
+            default: true
+        }
+    },
+    data() {
+        return {
+            query: ''
+        };
     }
-  },
-  data() {
-    return {
-      query: ''
-    };
-  }
 };
 </script>

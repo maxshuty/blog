@@ -15,9 +15,9 @@ import HeaderComp from '../components/Header.vue';
 import FooterComp from '../components/Footer.vue';
 
 export default {
-  components: {
-    HeaderComp,
-    FooterComp
-  }
+    components: {
+        HeaderComp,
+        FooterComp
+    }
 };
 </script>
