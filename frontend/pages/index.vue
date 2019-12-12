@@ -10,51 +10,68 @@
     </v-row>
 
     <div v-if="filteredBlogs.length == 0">
-      <img src="https://assets-ouch.icons8.com/preview/19/52de2377-696e-4194-8c63-0a81aef60b4f.png" height="800" width="800">
+      <img
+        src="https://assets-ouch.icons8.com/preview/19/52de2377-696e-4194-8c63-0a81aef60b4f.png"
+        height="800"
+        width="800">
       <p>No blogs found</p>
     </div>
   </div>
 </template>
 
 <script>
+import { mapMutations } from 'vuex';
+import { mutationTypes } from '../store/blogs.js';
 import blogsQuery from '../apollo/queries/blog/blogs.gql';
 import categoriesQuery from '../apollo/queries/category/categories.gql';
 import CardComp from '../components/ui-helpers/Card.vue';
 import SearchComp from '../components/Search.vue';
 
 export default {
-  components: {
-    CardComp,
-    SearchComp
-  },
-  data() {
-    return {
-      blogs: [],
-      query: '',
-      categories: []
-    };
-  },
-  apollo: {
-    blogs: {
-      prefetch: true,
-      query: blogsQuery
+    components: {
+        CardComp,
+        SearchComp
     },
-    categories: {
-      prefetch: true,
-      query: categoriesQuery
+    data() {
+        return {
+            blogs: [],
+            searchQuery: '',
+            categories: []
+        };
+    },
+    apollo: {
+        blogs: {
+            prefetch: true,
+            query: blogsQuery
+        },
+        categories: {
+            prefetch: true,
+            query: categoriesQuery
+        }
+    },
+    computed: {
+        filteredBlogs() {
+            return this.blogs.filter((blog) => {
+                return this.searchQuery
+                    ? blog.title
+                        .toLowerCase()
+                        .includes(this.searchQuery.toLowerCase())
+                    : blog;
+            });
+        }
+    },
+    created() {
+        this.setBlogs(this.blogs);
+        this.setCategories(this.categories);
+    },
+    methods: {
+        ...mapMutations({
+            setBlogs: mutationTypes.SET_BLOGS,
+            setCategories: mutationTypes.SET_CATEGORIES
+        }),
+        searchInput(input) {
+            this.searchQuery = input;
+        }
     }
-  },
-  computed: {
-    filteredBlogs() {
-      return this.blogs.filter((blog) => {
-        return this.query ? blog.title.toLowerCase().includes(this.query.toLowerCase()) : blog;
-      });
-    }
-  },
-  methods: {
-    searchInput(input) {
-      this.query = input;
-    }
-  }
 };
 </script>
