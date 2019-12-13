@@ -23,8 +23,6 @@
 </template>
 
 <script>
-// TODO: Create an icon-comp for these v-icons...
-
 export default {
     name: 'ButtonComp',
     props: {
