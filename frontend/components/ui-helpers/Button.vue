@@ -5,10 +5,16 @@
     :text="textOnly"
     :color="getButtonColor"
     @click="handleClick">
+    <v-icon
+      v-if="icon && iconBefore"
+      :color="iconColor"
+      class="button-icon">
+      {{ icon }}
+    </v-icon>
     <span v-if="content">{{ content }}</span>
     <slot></slot>
     <v-icon
-      v-if="icon"
+      v-if="icon && !iconBefore"
       :color="iconColor"
       class="button-icon">
       {{ icon }}
@@ -17,10 +23,16 @@
 </template>
 
 <script>
+// TODO: Create an icon-comp for these v-icons...
+
 export default {
     name: 'ButtonComp',
     props: {
         disabled: {
+            type: Boolean,
+            default: false
+        },
+        iconBefore: {
             type: Boolean,
             default: false
         },
