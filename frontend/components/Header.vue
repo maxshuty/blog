@@ -1,7 +1,11 @@
 <template>
   <div>
     <v-toolbar>
-      <v-toolbar-title>Poshusta's</v-toolbar-title>
+      <v-toolbar-title>
+        <NuxtLink to="/" class="nav-title">
+          Poshusta's
+        </NuxtLink>
+      </v-toolbar-title>
       <v-spacer />
       <account-select-comp />
     </v-toolbar>
@@ -18,3 +22,10 @@ export default {
     }
 };
 </script>
+
+<style scoped>
+.nav-title {
+    text-decoration: none;
+    color: #000000;
+}
+</style>
