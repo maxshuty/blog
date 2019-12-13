@@ -10,6 +10,7 @@
         <div>
           <h3>{{ title }}</h3>
           <div v-if="body" v-html="$md.render(body)" />
+          <slot />
         </div>
       </v-card-text>
     </v-card>
