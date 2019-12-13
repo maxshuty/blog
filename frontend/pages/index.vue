@@ -75,8 +75,8 @@ export default {
             this.searchQuery = input;
         },
         goToBlog(id) {
-            // TODO: Set active blog in the store then route to Blog.vue page
-            debugger;
+            const path = `blog/${id}/`;
+            this.$router.push(path);
         }
     }
 };
