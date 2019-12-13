@@ -55,6 +55,9 @@ export default {
     },
     computed: {
         filteredBlogs() {
+            if (!this.blogs) {
+                return;
+            }
             return this.blogs.filter((blog) => {
                 return this.searchQuery
                     ? blog.title
