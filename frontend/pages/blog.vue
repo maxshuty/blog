@@ -1,5 +1,6 @@
 <template>
   <div>
+    <!-- TODO: Max P - Breadcrumbs -->
     <h1>{{ blog.title }}</h1>
   </div>
 </template>
