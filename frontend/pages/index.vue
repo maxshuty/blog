@@ -4,16 +4,16 @@
     <v-row align="center" justify="center">
       <div v-for="blog in filteredBlogs" :key="blog.id">
         <v-col cols="12">
-          <card-comp :title="blog.title" :body="blog.body" />
+          <card-comp :title="blog.title" :body="blog.body">
+            <button-comp
+              :content="'View Blog'"
+              @click="goToBlog(blog.id)" />
+          </card-comp>
         </v-col>
       </div>
     </v-row>
 
     <div v-if="filteredBlogs.length == 0">
-      <img
-        src="https://assets-ouch.icons8.com/preview/19/52de2377-696e-4194-8c63-0a81aef60b4f.png"
-        height="800"
-        width="800">
       <p>No blogs found</p>
     </div>
   </div>
@@ -24,11 +24,13 @@ import { mapMutations } from 'vuex';
 import { mutationTypes } from '../store/blogs.js';
 import blogsQuery from '../apollo/queries/blog/blogs.gql';
 import categoriesQuery from '../apollo/queries/category/categories.gql';
+import ButtonComp from '../components/ui-helpers/Button.vue';
 import CardComp from '../components/ui-helpers/Card.vue';
 import SearchComp from '../components/Search.vue';
 
 export default {
     components: {
+        ButtonComp,
         CardComp,
         SearchComp
     },
@@ -71,6 +73,10 @@ export default {
         }),
         searchInput(input) {
             this.searchQuery = input;
+        },
+        goToBlog(id) {
+            // TODO: Set active blog in the store then route to Blog.vue page
+            debugger;
         }
     }
 };

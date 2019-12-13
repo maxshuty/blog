@@ -7,6 +7,7 @@ export const mutationTypes = Object.freeze({
 
 export const state = () => ({
     loading: false,
+    activeBlogId: Number,
     blogs: [],
     categories: []
 });
