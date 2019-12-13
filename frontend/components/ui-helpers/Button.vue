@@ -6,6 +6,7 @@
     :color="getButtonColor"
     @click="handleClick">
     <span v-if="content">{{ content }}</span>
+    <slot></slot>
     <v-icon
       v-if="icon"
       :color="iconColor"
