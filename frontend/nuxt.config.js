@@ -82,6 +82,19 @@ export default {
         }
     },
     /*
+    ** Extend routes
+    */
+    router: {
+        extendRoutes(routes, resolve) {
+            routes.push({
+                path: '/blog/:id',
+                components: {
+                    default: resolve(__dirname, 'pages/blog')
+                }
+            });
+        }
+    },
+    /*
      ** Build configuration
      */
     build: {
