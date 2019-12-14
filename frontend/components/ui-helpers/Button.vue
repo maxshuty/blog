@@ -12,7 +12,7 @@
       {{ icon }}
     </v-icon>
     <span v-if="content">{{ content }}</span>
-    <slot></slot>
+    <slot />
     <v-icon
       v-if="icon && !iconBefore"
       :color="iconColor"

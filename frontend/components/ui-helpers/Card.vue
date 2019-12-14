@@ -9,7 +9,10 @@
       <v-card-text class="my-4 text-center title">
         <div>
           <h3>{{ title }}</h3>
-          <div v-if="body" v-html="$md.render(body)" />
+          <div
+            v-if="body"
+            :class="{'card-skinny-body': skinnyBody}"
+            v-html="$md.render(body)" />
           <slot />
         </div>
       </v-card-text>
@@ -29,6 +32,10 @@ export default {
             type: String,
             required: true
         },
+        skinnyBody: {
+            type: Boolean,
+            default: false
+        },
         body: {
             type: String,
             default: '',
@@ -45,3 +52,11 @@ export default {
     }
 };
 </script>
+
+<style scoped>
+.card-skinny-body {
+    max-height: 100px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+</style>

@@ -4,7 +4,10 @@
     <v-row align="center" justify="center">
       <div v-for="blog in filteredBlogs" :key="blog.id">
         <v-col cols="12">
-          <card-comp :title="blog.title" :body="blog.body">
+          <card-comp
+            :title="blog.title"
+            skinny-body
+            :body="blog.body">
             <button-comp
               :content="'View Blog'"
               @click="goToBlog(blog.id)" />
@@ -55,9 +58,6 @@ export default {
     },
     computed: {
         filteredBlogs() {
-            if (!this.blogs) {
-                return;
-            }
             return this.blogs.filter((blog) => {
                 return this.searchQuery
                     ? blog.title
