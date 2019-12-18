@@ -1,15 +1,24 @@
 <template>
   <div>
     <!-- TODO: Max P - Breadcrumbs -->
-    <h1>{{ blog.title }}</h1>
+    <card-comp>
+      <h1 class="text-center">{{ blog.title }}</h1>
+        <div
+          v-if="blog.body"
+          v-html="$md.render(blog.body)" />
+    </card-comp>
   </div>
 </template>
 
 <script>
 import blogQuery from '../apollo/queries/blog/blog.gql';
+import CardComp from '../components/ui-helpers/Card.vue';
 
 export default {
     name: 'Blog',
+    components: {
+        CardComp
+    },
     data() {
         return {
             blog: Object
