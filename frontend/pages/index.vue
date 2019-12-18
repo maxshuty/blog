@@ -6,8 +6,10 @@
         <v-col cols="12">
           <card-comp
             :title="blog.title"
-            skinny-body
-            :body="blog.body">
+            trim-body
+            :body="blog.body"
+            :height="350"
+            :width="350">
             <button-comp
               :content="'View Blog'"
               @click="goToBlog(blog.id)" />

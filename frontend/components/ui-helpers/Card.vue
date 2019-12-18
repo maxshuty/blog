@@ -7,14 +7,14 @@
       :width="width"
       class="mx-auto">
       <v-card-text class="my-4 text-center title">
-        <div>
-          <h3>{{ title }}</h3>
-          <div
-            v-if="body"
-            :class="{'card-skinny-body': skinnyBody}"
-            v-html="$md.render(body)" />
-          <slot />
-        </div>
+        <h3>{{ title }}</h3>
+      </v-card-text>
+      <v-card-text>
+        <div
+          v-if="body"
+          :class="{'card-trimmed-body': trimBody}"
+          v-html="$md.render(body)" />
+        <slot />
       </v-card-text>
     </v-card>
   </v-hover>
@@ -32,7 +32,7 @@ export default {
             type: String,
             required: true
         },
-        skinnyBody: {
+        trimBody: {
             type: Boolean,
             default: false
         },
@@ -43,18 +43,18 @@ export default {
         },
         height: {
             type: Number,
-            default: 350
+            default: null
         },
         width: {
             type: Number,
-            default: 350
+            default: null
         }
     }
 };
 </script>
 
 <style scoped>
-.card-skinny-body {
+.card-trimmed-body {
     max-height: 100px;
     text-overflow: ellipsis;
     overflow: hidden;
