@@ -1,24 +1,25 @@
 <template>
-  <div>
-    <!-- TODO: Max P - Breadcrumbs -->
-    <card-comp>
-      <h1 class="text-center">{{ blog.title }}</h1>
+  <v-container class="blog-container">
+    <v-row>
+      <v-col cols="12">
+        <!-- TODO: Max P - Breadcrumbs -->
+        <h1 class="text-center display-3 font-weight-thin">
+          {{ blog.title }}
+        </h1>
         <div
           v-if="blog.body"
-          v-html="$md.render(blog.body)" />
-    </card-comp>
-  </div>
+          v-html="$md.render(blog.body)"
+          class="mt-10 blog-body font-weight-light" />
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script>
 import blogQuery from '../apollo/queries/blog/blog.gql';
-import CardComp from '../components/ui-helpers/Card.vue';
 
 export default {
     name: 'Blog',
-    components: {
-        CardComp
-    },
     data() {
         return {
             blog: Object
@@ -37,3 +38,14 @@ export default {
     }
 };
 </script>
+
+<style scoped>
+.blog-container {
+    max-width: 680px;
+}
+
+.blog-body {
+    font-size: 21px;
+    color: #000000;
+}
+</style>
