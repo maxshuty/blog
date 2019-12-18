@@ -30,7 +30,7 @@ export default {
         },
         title: {
             type: String,
-            required: true
+            required: false
         },
         trimBody: {
             type: Boolean,
@@ -38,7 +38,6 @@ export default {
         },
         body: {
             type: String,
-            default: '',
             required: false
         },
         height: {
