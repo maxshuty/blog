@@ -4,25 +4,25 @@
       <v-col cols="12">
         <!-- TODO: Max P - Breadcrumbs -->
         <div class="title-container">
-            <h1 class="display-3 font-weight-thin">
-                {{ blog.title }}
-            </h1>
-            <div v-if="blog.authors.length > 0" class="mt-5">
-                <div
-                    v-for="(author, index) in blog.authors"
-                    :key="`${author.firstName}-${index}`"
-                    class="caption">
-                    {{ `${author.firstName || ''} ${author.lastName || ''} ${author.relationship ? '- ' + author.relationship : ''}` }}
-                </div>
+          <h1 class="display-3 font-weight-thin">
+            {{ blog.title }}
+          </h1>
+          <div v-if="blog.authors.length > 0" class="mt-5">
+            <div
+              v-for="(author, index) in blog.authors"
+              :key="`${author.firstName}-${index}`"
+              class="caption">
+              {{ `${author.firstName || ''} ${author.lastName || ''} ${author.relationship ? '- ' + author.relationship : ''}` }}
             </div>
-            <div v-if="blog.date" class="caption">
-                {{ getFormattedDate(blog.date) }}
-            </div>
+          </div>
+          <div v-if="blog.date" class="caption">
+            {{ getFormattedDate(blog.date) }}
+          </div>
         </div>
-          <div
-            v-if="blog.body"
-            class="mt-10 blog-body font-weight-light"
-            v-html="$md.render(blog.body)" />
+        <div
+          v-if="blog.body"
+          class="mt-10 blog-body font-weight-light"
+          v-html="$md.render(blog.body)" />
       </v-col>
     </v-row>
   </v-container>
@@ -52,7 +52,7 @@ export default {
     methods: {
         getFormattedDate(dateString) {
             const date = new Date(dateString);
-            return (date.toLocaleDateString("en-us", {weekday: "long"}) +
+            return (date.toLocaleDateString('en-us', { weekday: 'long' }) +
                     ' | ' +
                     date.toLocaleDateString('en-us', { month: 'short' }) +
                     ' · ' +
