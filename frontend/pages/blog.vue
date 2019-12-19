@@ -3,14 +3,20 @@
     <v-row>
       <v-col cols="12">
         <!-- TODO: Max P - Breadcrumbs -->
-        <div class="text-center title-container">
+        <div class="title-container">
             <h1 class="display-3 font-weight-thin">
                 {{ blog.title }}
             </h1>
             <div v-if="blog.authors.length > 0" class="mt-5">
-                <div v-for="(author, index) in blog.authors" :key="`${author.firstName}-${index}`">
-                    {{ `${author.firstName || ''} ${author.lastName || ''} - ${author.relationship || ''}` }}
+                <div
+                    v-for="(author, index) in blog.authors"
+                    :key="`${author.firstName}-${index}`"
+                    class="caption">
+                    {{ `${author.firstName || ''} ${author.lastName || ''} ${author.relationship ? '- ' + author.relationship : ''}` }}
                 </div>
+            </div>
+            <div v-if="blog.date" class="caption">
+                {{ getFormattedDate(blog.date) }}
             </div>
         </div>
           <div
@@ -41,6 +47,18 @@ export default {
             variables() {
                 return { id: this.$route.params.id };
             }
+        }
+    },
+    methods: {
+        getFormattedDate(dateString) {
+            const date = new Date(dateString);
+            return (date.toLocaleDateString("en-us", {weekday: "long"}) +
+                    ' | ' +
+                    date.toLocaleDateString('en-us', { month: 'short' }) +
+                    ' · ' +
+                    date.getDate() +
+                    ' · ' +
+                    date.getFullYear());
         }
     }
 };
