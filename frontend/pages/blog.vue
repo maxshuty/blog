@@ -3,13 +3,20 @@
     <v-row>
       <v-col cols="12">
         <!-- TODO: Max P - Breadcrumbs -->
-        <h1 class="text-center display-3 font-weight-thin">
-          {{ blog.title }}
-        </h1>
-        <div
-          v-if="blog.body"
-          v-html="$md.render(blog.body)"
-          class="mt-10 blog-body font-weight-light" />
+        <div class="text-center title-container">
+            <h1 class="display-3 font-weight-thin">
+                {{ blog.title }}
+            </h1>
+            <div v-if="blog.authors.length > 0" class="mt-5">
+                <div v-for="(author, index) in blog.authors" :key="`${author.firstName}-${index}`">
+                    {{ `${author.firstName || ''} ${author.lastName || ''} - ${author.relationship || ''}` }}
+                </div>
+            </div>
+        </div>
+          <div
+            v-if="blog.body"
+            class="mt-10 blog-body font-weight-light"
+            v-html="$md.render(blog.body)" />
       </v-col>
     </v-row>
   </v-container>

@@ -28,17 +28,17 @@ export default {
             type: Boolean,
             default: false
         },
-        title: {
-            type: String,
-            required: false
-        },
         trimBody: {
             type: Boolean,
             default: false
         },
+        title: {
+            type: String,
+            default: ''
+        },
         body: {
             type: String,
-            required: false
+            default: ''
         },
         height: {
             type: Number,
