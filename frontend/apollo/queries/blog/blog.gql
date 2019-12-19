@@ -2,6 +2,12 @@ query Blog($id: ID!) {
   blog(id: $id) {
       id
       title
+      subtitle
+      authors {
+        firstName
+        lastName
+        relationship
+      }
       date
       body
       attachments {
