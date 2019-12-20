@@ -7,7 +7,7 @@
           <h1 class="display-3 font-weight-thin">
             {{ blog.title }}
           </h1>
-          <div v-if="blog.authors.length > 0" class="mt-5">
+          <div v-if="blog.authors && blog.authors.length > 0" class="mt-5">
             <div
               v-for="(author, index) in blog.authors"
               :key="`${author.firstName}-${index}`"
