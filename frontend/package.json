@@ -5,7 +5,9 @@
     "author": "Max Poshusta",
     "private": true,
     "scripts": {
+        "all": "npm-run-all --parallel dev backend",
         "dev": "nuxt",
+        "backend": "cd ../backend && npm run dev",
         "build": "nuxt build",
         "start": "nuxt start",
         "generate": "nuxt generate",
