@@ -1,5 +1,5 @@
 {
-  "host": "localhost",
+  "host": "137.27.114.18",
   "port": "${process.env.PORT || 4242}",
   "production": true,
   "proxy": {
@@ -9,6 +9,7 @@
     "enabled": false
   },
   "admin": {
-    "autoOpen": false
+    "autoOpen": false,
+    "path": "/blog-admin-cms"
   }
 }
