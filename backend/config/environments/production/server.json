@@ -9,7 +9,6 @@
     "enabled": false
   },
   "admin": {
-    "autoOpen": false,
-    "path": "/blog-admin-cms"
+    "autoOpen": false
   }
 }
