@@ -13,11 +13,14 @@
         "generate": "nuxt generate",
         "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
         "cleanup": "npm run lint -- --fix",
-        "test": "jest"
+        "test": "jest",
+        "productionBuild": "cross-env NODE_ENV=production npm run build",
+        "productionRun": "cross-env NODE_ENV=production npm run start"
     },
     "dependencies": {
         "@nuxtjs/apollo": "^4.0.0-rc18",
         "@nuxtjs/markdownit": "^1.2.7",
+        "cross-env": "^6.0.3",
         "graphql": "^14.5.8",
         "nuxt": "^2.0.0"
     },
