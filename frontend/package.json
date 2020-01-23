@@ -15,15 +15,15 @@
         "cleanup": "npm run lint -- --fix",
         "test": "jest",
         "productionBuild": "cross-env NODE_ENV=production npm run build",
-        "productionRun": "cross-env NODE_ENV=production npm run start",
+        "productionRun": "cross-env NODE_ENV=production npm run start"
     },
     "dependencies": {
         "@nuxtjs/apollo": "^4.0.0-rc18",
         "@nuxtjs/markdownit": "^1.2.7",
+        "@nuxtjs/vuetify": "^1.0.0",
         "cross-env": "^6.0.3",
         "graphql": "^14.5.8",
-        "nuxt": "^2.0.0",
-        "@nuxtjs/vuetify": "^1.0.0"
+        "nuxt": "^2.0.0"
     },
     "devDependencies": {
         "@nuxtjs/eslint-config": "^1.0.1",
